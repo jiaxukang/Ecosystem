@@ -31,6 +31,14 @@ public class PA9Main extends Application {
             System.out.println(cmd_in.getText());
         });
 
+        // Alternative way to do this without lambda expression.
+        // button.setOnAction(new EventHandler<ActionEvent>() {
+        // @Override
+        // public void handle(ActionEvent event) {
+        // System.out.println(cmd_in.getText());
+        // }
+        // });
+
         // Connect the border pane into the scene and show the window.
         primaryStage.setTitle("Sample input field");
         primaryStage.setScene(new Scene(p));
