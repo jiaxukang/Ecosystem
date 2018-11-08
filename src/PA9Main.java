@@ -1,4 +1,6 @@
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -27,11 +29,9 @@ public class PA9Main extends Application {
         p.setBottom(input_box);
 
         // === Example of how to set up processing input from a text area
-        button.setOnAction((event) -> {
-            System.out.println(cmd_in.getText());
-        });
+        button.setOnAction(new HandleTextInput(cmd_in));
 
-        // Alternative way to do this without lambda expression.
+        // Alternative: using an anonymous class
         // button.setOnAction(new EventHandler<ActionEvent>() {
         // @Override
         // public void handle(ActionEvent event) {
@@ -39,10 +39,28 @@ public class PA9Main extends Application {
         // }
         // });
 
+        // Alternative: use lambda function
+        // button.setOnAction((event) -> {
+        // System.out.println(cmd_in.getText());
+        // });
+
         // Connect the border pane into the scene and show the window.
         primaryStage.setTitle("Sample input field");
         primaryStage.setScene(new Scene(p));
         primaryStage.show();
+    }
+
+    class HandleTextInput implements EventHandler<ActionEvent> {
+        public HandleTextInput(TextField cmd_in) {
+            this.cmd_in = cmd_in;
+        }
+
+        @Override
+        public void handle(ActionEvent event) {
+            System.out.println(cmd_in.getText());
+        }
+
+        private TextField cmd_in;
     }
 
 }
