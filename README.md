@@ -1,4 +1,4 @@
-PA8-Crispr-GUI (Status: posted October 30)
+# PA9-CrisprGUI-Start
 Learning Objectives
 
 The goal of this assignment is to use basic JavaFX to create a GUI output representation of the PA6-Crispr program.
